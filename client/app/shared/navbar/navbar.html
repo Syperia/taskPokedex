@@ -1,0 +1,12 @@
+<nav role="navigation" class="navbar">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/pokemons" class="brand-logo">
+      <img src="assets/images/pokédex_logo.png" alt="Pokedex logo" />
+    </a>
+    <ul class="nav-link">
+      <li ng-repeat="link in $ctrl.links">
+        <a href="" ui-sref="{{link.component}}">{{link.name}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

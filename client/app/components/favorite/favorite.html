@@ -1,0 +1,14 @@
+<div>
+
+  <h1>{{$ctrl.title}}</h1>
+
+  <div class="favorite">
+    <div class="row">
+      <div class="col-xs-6 col-sm-4" ng-repeat="pokemon in $ctrl.pokemons  | filter: $ctrl.typeFilterFn as results track by pokemon.id">
+        <pokemon pokemon="pokemon"></pokemon>
+      </div>
+    </div>
+    <div ng-if="results.length == 0 && !$ctrl.loading">No results</div>
+  </div>
+
+</div>

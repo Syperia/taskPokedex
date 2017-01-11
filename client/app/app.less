@@ -1,0 +1,26 @@
+@import '../styles/main';
+
+.content {
+  padding: 15px;
+  min-height: 350px;
+  position: relative;
+  [ui-view] {
+    &.ng-enter {
+      transition: all .5s ease-in-out;
+      opacity: 0;
+    }
+    &.ng-enter-active {
+      opacity: 1;
+    }
+    &.ng-leave {
+      opacity: 1;
+    }
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
+.poke-loader {
+  opacity: 0.2;
+}

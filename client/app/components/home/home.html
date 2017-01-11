@@ -1,0 +1,26 @@
+<div class="home">
+
+  <h1>{{$ctrl.title}}</h1>
+
+  <div class="form-group">
+    <label for="pageSize">Type filter </label>
+    <select id="pageSize" class="form-control" ng-model="$ctrl.typeFilter">
+      <option value="">No filter</option>
+      <option ng-repeat="poketype in $ctrl.types track by poketype.id" value="{{poketype.id}}">{{poketype.name}}</option>
+    </select>
+  </div>
+
+  <div class="featured">
+    <div class="row">
+      <div class="col-xs-6 col-sm-4" ng-repeat="pokemon in $ctrl.pokemons  | filter: $ctrl.typeFilterFn as results track by pokemon.id">
+        <pokemon pokemon="pokemon"></pokemon>
+      </div>
+    </div>
+    <div ng-if="results.length == 0 && !$ctrl.loading">No results</div>
+  </div>
+
+  <div class="form-group text-center">
+    <img src="assets/images/loading.gif" alt="pokemon" ng-show="$ctrl.loading" class="poke-loader" />
+    <button class="btn btn-primary" ng-click="$ctrl.loadMore()" ng-hide="$ctrl.loading">Load more</button>
+  </div>
+</div>

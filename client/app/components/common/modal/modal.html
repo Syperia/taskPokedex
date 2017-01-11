@@ -1,0 +1,23 @@
+<div class="pokemon-modal">
+    <div class="modal-header">
+        <h2>{{::pokemon.id}}</h2>
+        <h3 class="modal-title">{{::pokemon.name}}</h3>
+    </div>
+    <div class="modal-body text-center">
+        <img src="assets/images/loading.gif" alt="pokemon" class="poke-loader" ng-hide="loaded"/>
+        <img ng-src="{{::pokemon.pic}}" alt="pokemon" ng-show="loaded"/>
+        <br>
+        <h3>Attack: {{::pokemon.attack}}</h3>
+        <h3>Defense: {{::pokemon.defense}}</h3>
+        <h4>Abilities:
+            <span ng-repeat="ability in ::pokemon.abilities track by ability.name">&nbsp;{{::ability.name}}&nbsp;</span>
+        </h4>
+    </div>
+    <div class="poke-types text-center">
+        <span ng-repeat="type in pokemon.types track by type.name" ng-class="::type.name" ng-bind="::type.name"></span>
+    </div>
+    <br>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()" disabled>OK</button>
+    </div>
+</div>

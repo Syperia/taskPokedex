@@ -1,0 +1,12 @@
+<div class="pokemon preload text-center" ng-click="openPokemon()">
+  <h2 class="name">{{::$ctrl.pokemon.name}}
+    <a ng-click="togglePokemon(); $event.stopPropagation();">
+      <i class="fa" ng-class="$ctrl.pokemon.favorite? 'fa-star' : 'fa-star-o'"></i>
+    </a>
+  </h2>
+  <img src="assets/images/loading.gif" alt="pokemon" />
+  <br><br>
+  <div class="poke-types">
+    <div ng-repeat="type in ::$ctrl.pokemon.types track by type.name" ng-class="::type.name" ng-bind="::type.name"></div>
+  </div>
+</div>
